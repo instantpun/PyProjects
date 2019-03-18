@@ -9,6 +9,12 @@ Consult the almighty googles for more info
 
 # grab command line arguments using argparser module
 import argparse
+from os import getcwd
+import sys
+
+workingdir = getcwd()
+sys.path.append(str(workingdir))
+print(workingdir)
 
 # step 1: create a parser
 # this is basically a container to hold command-line arguments
@@ -16,13 +22,16 @@ import argparse
 parser = argparse.ArgumentParser(description='Process some CLI arguments.',
                                  prog='Streamline')
 # allow user to view version info
-parser.add_argument('--version',
+parser.add_argument('-V','--version',
                     action='version',
                     version=r'''Program: Project Streamline
                     Version: 1.1
                     Predecessor: 1.0''',
                     help='Display version control information',
                     )
+parser.add_argument('-o','--output',
+                    help="Output result to a file.",
+                    action="store_true")
 # establish mutually exclusive CLI arguments for -c and -f
 # create exclusive_args parser object
 exclusive_args1 = parser.add_mutually_exclusive_group(required=False)
@@ -49,25 +58,31 @@ exclusive_args2.add_argument('-v','--verbose',
                              help="prints verbose command output"
                              )
 
-current_args = parser.parse_args()
+#def test_outfile(filename):
+#	filename = str(filename)
+#	print(filename)
+#	if args.output:
+#		with open("{0}.txt".format(filename), "a") as f:
+#			f.write(str(result))
 
+
+# print(args.output)
 
 # default message if no arguments are provided
 def default_msg():
-    string = r'''
+    info = r'''
     For more information about usage of the _this_ command, please use the -h option.
 
     Example:
     _this_.py -h'''
-    return string
+    return info
 
 
 if __name__ == '__main__':
+    current_args = parser.parse_args()
     output = [current_args.clipboard, current_args.file]
-    if current_args.quiet == True:
-        output = str(current_args.clipboard) + "\n" + str(current_args.file)
-        print(output)
-    elif current_args.verbose == True:
+    print(output)
+    if current_args.verbose == True:
         print("\nThese are the current arguments in use by this command:\n",
               "Value of clipboard argument: " + str(current_args.clipboard) + "\n",
               "Value of file argument: " + str(current_args.file) + "\n",

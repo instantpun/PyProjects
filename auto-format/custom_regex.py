@@ -10,7 +10,7 @@ import re
 dataSource = "";
 
 # identify if UT or MS-ISAC
-re1 = "U.T. SYSTEM.\n"
+regex1 = "U.T. SYSTEM.\n"
 
 # open file or get from clipboard``
 # options to add maybe?
@@ -19,7 +19,7 @@ re1 = "U.T. SYSTEM.\n"
 
 # create binary search tree to iterate through dataTokens
 
-regex1 = "match something"
+src_ip = "source\sip\s(?<src_ip>(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))"
 
 def test(x):
 	if regex1 in x is True:

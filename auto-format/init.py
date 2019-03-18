@@ -18,11 +18,11 @@ self represents the instance of the class. By using the "self" keyword we can ac
 
 __init__ :
 
-"__init__" is a reserved method in python classes. It is known as a constructor in object oriented concepts. This method called when an object is created from the class and it allow the class to initialize the attributes of a class.
+"__init__" is a reserved method in python classes. It is known as a constructor in object oriented terms. This method is called when an object is created from a class and it allows the object to initialize the attributes of that class.
 """
 
 import sys
-sys.path.append("C:\\Users\\Provalus\\Projects\\PyProjects\\Py3-Udemy")
+sys.path.append(0, '/home/Gatekeeper/github/PyProjects/auto-format')
 import pyperclip
 import custom_regex
 
